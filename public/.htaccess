@@ -1,0 +1,37 @@
+# Apache config for tezibusiness.com (shared hosting). Upload with the rest of dist/ to public_html/.
+Options -Indexes
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Force HTTPS (also when the host's nginx proxy terminates SSL)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://tezibusiness.com%{REQUEST_URI} [L,R=301]
+  # www.tezibusiness.com -> tezibusiness.com
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://tezibusiness.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+ErrorDocument 404 /index.html
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Hashed build files never change: cache for a year
+  <FilesMatch "^index-[\w-]+\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Always re-check the page itself so new deploys show up immediately
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(png|webp|ico|jpg|jpeg|svg)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
