@@ -333,3 +333,16 @@
   .cells i{height:26px;border-radius:5px;background:var(--blue);opacity:var(--o)}
   .hl{display:grid;grid-template-columns:repeat(14,1fr);gap:4px;margin-top:6px;font-size:10px;color:var(--ink-3);white-space:nowrap}
   @media (max-width:733px){ .chart .ax{font-size:20px} .chart .tip{display:none} .hl span:nth-child(4n+3){visibility:hidden} }
+
+  /* ===== Product detail pages ===== */
+  .pdp-hero{padding:92px 0 96px;text-align:center;position:relative;overflow:hidden;isolation:isolate}
+  .pdp-hero::before{content:"";position:absolute;left:50%;top:-30%;width:1100px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(49,88,124,.10),transparent);z-index:-1}
+  .pdp-hero h1{max-width:880px;margin:0 auto}
+  .pdp-hero .ctas{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px}
+  .flowline{list-style:none;margin:48px auto 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:960px}
+  .flowline li{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px}
+  .flowline .fn{font-size:11px;font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+  .pdp-mods{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:48px;text-align:left}
+  .pdp-mods .hub{grid-column:1/-1}
+  @media (min-width:734px){ .pdp-hero{padding:120px 0} .pdp-mods{grid-template-columns:repeat(3,1fr)} }
+  @media (min-width:1000px){ .pdp-mods{grid-template-columns:repeat(4,1fr)} }

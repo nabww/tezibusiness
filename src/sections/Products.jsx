@@ -81,7 +81,7 @@ function Product({ name, logo, kind, title, items, visual, more, delay }) {
       <Ticks items={items} />
       <div className="p-cta">
         <Magnetic className="btn btn-secondary" href="#book" strength={0.2}>Book a discovery call</Magnetic>
-        <a className="text-link" href={more} target="_blank" rel="noopener">More about {name}</a>
+        <a className="text-link" href={more}>More about {name}</a>
       </div>
     </Reveal>
   )
@@ -98,9 +98,9 @@ export default function Products() {
         </div>
         <div className="product-grid">
           <Product name="TeziPOS" logo={<>tezi<span>pos</span></>} kind="Point of sale · Cloud &amp; mobile" title="Sell smarter and keep stock under control, from one shop to many."
-            items={POS} visual={<Phone />} more="https://tezi.co.ke/tezipos/" delay={0} />
+            items={POS} visual={<Phone />} more="/tezipos/" delay={0} />
           <Product name="Tezicare" logo={<>tezi<span>care</span></>} kind="Hospital management system" title="Patient records, billing, pharmacy and lab, without the paperwork."
-            items={CARE} visual={<Journey />} more="https://tezi.co.ke/tezicare/" delay={0.1} />
+            items={CARE} visual={<Journey />} more="/tezicare/" delay={0.1} />
         </div>
         <Reveal className="compare">
           <div className="cmp-h"><span>Off the shelf</span><span className="c">Custom with Tezi</span></div>

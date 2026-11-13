@@ -16,12 +16,13 @@ export function Final() {
 }
 
 export function Footer() {
+  const base = window.location.pathname === '/' ? '' : '/'
   return (
     <footer>
       <div className="wrap">
-        <span>&copy; 2026 Tezi, formerly Depikt Studio. Tezicare and TeziPOS are the accelerators we build on.</span>
+        <span>&copy; 2026 Tezi. Tezicare and TeziPOS are the accelerators we build on.</span>
         <nav aria-label="Footer">
-          <a href="#process">Process</a><a href="#case">Case study</a><a href="#insights">Insights</a><a href="#work">Work</a><a href="#products">Products</a><a href="#story">Our story</a><a href="#how">How we work</a><a href="#book">Book a discovery call</a>
+          <a href={`${base}#process`}>Process</a><a href={`${base}#case`}>Case study</a><a href={`${base}#insights`}>Insights</a><a href={`${base}#work`}>Work</a><a href={`${base}#products`}>Products</a><a href={`${base}#story`}>Our story</a><a href={`${base}#how`}>How we work</a><a href={`${base}#book`}>Book a discovery call</a>
         </nav>
       </div>
     </footer>
